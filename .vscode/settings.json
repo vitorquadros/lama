@@ -79,5 +79,6 @@
     "composer.json": false,
     "artisan": false
   },
-  "explorerExclude.backup": {}
+  "explorerExclude.backup": {},
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
