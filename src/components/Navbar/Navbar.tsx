@@ -1,16 +1,14 @@
-'use client';
-
-import { Container } from './Navbar.styles';
 import Links from './Links/Links';
+import styles from './Navbar.module.css';
 
 const Navbar = () => {
   return (
-    <Container>
-      <div>Logo</div>
+    <div className={styles.container}>
+      <div className={styles.logo}>Logo</div>
       <div>
         <Links />
       </div>
-    </Container>
+    </div>
   );
 };
 
