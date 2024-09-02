@@ -59,7 +59,6 @@
 }
 
 body {
-  /* MAIN */
   background-color: var(--bg);
   color: var(--text);
 }
@@ -67,4 +66,15 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+/* MAIN LAYOUT */
+.container {
+  width: 1536px;
+  margin:auto;
+  padding: 0 50px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
