@@ -8,10 +8,14 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "resolutions": {
+    "styled-components": "^6"
+  },
   "dependencies": {
     "next": "14.2.5",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "styled-components": "^6.1.13"
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
