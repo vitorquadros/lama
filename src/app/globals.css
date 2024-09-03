@@ -61,8 +61,6 @@ body {
   color: var(--text);
 }
 
-
-
 a {
   text-decoration: none;
   color: inherit;
@@ -115,5 +113,11 @@ a {
 @media (max-width: 640px) {
   .container {
     width: 475px;
+  }
+}
+
+@media (max-width: 475px) {
+  .container {
+    width: 380px;
   }
 }
