@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">Lama</h1>
 
-## Getting Started
+<p align="center">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/vitorquadros/lama?color=darkblue&style=plastic">
+  <img alt="Last commit" src="https://img.shields.io/github/last-commit/vitorquadros/lama?color=darkblue&style=plastic">
+  <img alt="License" src="https://img.shields.io/github/license/vitorquadros/lama?color=darkblue&style=plastic"> 
 
-First, run the development server:
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+> <p align="center">Creative Thoughts Agency. Made in the Next.js 14 Complete Course 2024 by <a href="https://www.youtube.com/@LamaDev">Lama Dev</a>.</p>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<h2 align="center">Content</h2>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+<p align="center">
+<a href="#rocket-features">Features</a>
+·
+<a href="#gear-tecnologias">Technologies/Tools</a>
+·
+<a href="#question-como-testar">How to Test</a>
+·
+<a href="#copyright-licença">License</a>
+</p>
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+# :rocket: Features
 
-## Learn More
+- item
 
-To learn more about Next.js, take a look at the following resources:
+- item
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# :gear: Technologies
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### API
 
-## Deploy on Vercel
+- [Express](https://github.com/expressjs/express)
+- [PostgreSQL](https://github.com/postgres/postgres)
+- [TypeORM](https://github.com/typeorm/typeorm)
+- [BcryptJS](https://github.com/dcodeIO/bcrypt.js/)
+- [JsonWebToken](https://github.com/auth0/node-jsonwebtoken)
+- [UUID](https://github.com/uuidjs/uuid)
+- [Tsyringe](https://github.com/microsoft/tsyringe)
+- [Express's CORS](https://github.com/expressjs/cors)
+- [Nodemailer](https://github.com/nodemailer/nodemailer)
+- [Multer](https://github.com/expressjs/multer)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Frontend
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Vite](https://github.com/vitejs/vite)
+- [ReactJS](https://github.com/facebook/react)
+- [React Router DOM](https://github.com/remix-run/react-router)
+- [Axios](https://github.com/axios/axios)
+- [Styled Components](https://github.com/styled-components/styled-components)
+- [React Hook Form](https://github.com/react-hook-form/react-hook-form)
+- [Yup](https://github.com/jquense/yup)
+- [Moment](https://github.com/moment/moment)
+
+# :question: How to Test
+
+### **Locally**
+
+Para ambas as aplicações tenha certeza que você tem o [node](https://github.com/nodejs/node) e o [npm](https://github.com/npm/npm) instalados na sua máquina
+
+### API
+
+1. Crie um arquivo .env na raiz do projeto (api) e preencha as variáveis de ambiente listadas no arquivo [.github/.env.sample](.github/.env.sample)
+2. Instale as dependencias da aplicação com `npm install`
+3. Se estiver usando [docker](https://github.com/docker/compose) e [docker-compose](https://github.com/docker), substitua as configurações em [docker-compose.yml](./api/docker-compose.yml) antes de criar o container
+4. Rode as migrations com `npm run typeorm migration:run` para criar as tabelas no banco de dados
+5. Inicie o servidor com `npm run dev`
+
+### Frontend
+
+1. Instale as dependencias da aplicação com `npm install`
+2. Inicie o servidor com `npm run dev`
+
+# :copyright: Licença
+
+This project is under the [MIT license](./LICENSE).
+
+<p align="center">
+<sub>Made with ❤︎ by <a href="https://github.com/vitorquadros">Vitor Quadros</a></sub>
+</p>
