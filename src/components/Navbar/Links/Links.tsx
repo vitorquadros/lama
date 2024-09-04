@@ -5,7 +5,6 @@ import styles from './Links.module.css';
 import NavLink from './NavLink/NavLink';
 import Image from 'next/image';
 import { handleLogout } from '@/actions/authActions';
-import type { Session } from 'next-auth';
 
 const links = [
   {
@@ -27,7 +26,8 @@ const links = [
 ];
 
 interface Props {
-  session: Session | null;
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+  session: any | null;
 }
 
 const Links = (props: Props) => {
@@ -37,9 +37,6 @@ const Links = (props: Props) => {
   // States
   const [open, setOpen] = useState(false);
 
-  // DEBUG: temporary
-  const isAdmin = true;
-
   return (
     <div className={styles.container}>
       <div className={styles.links}>
@@ -48,7 +45,7 @@ const Links = (props: Props) => {
         ))}
         {session?.user ? (
           <>
-            {isAdmin && <NavLink item={{ title: 'Admin', path: '/admin' }} />}
+            {session?.user.isAdmin && <NavLink item={{ title: 'Admin', path: '/admin' }} />}
             <form action={handleLogout}>
               <button type="submit" className={styles.logout}>
                 Logout

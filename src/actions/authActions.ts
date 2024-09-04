@@ -39,7 +39,8 @@ export const login = async (
         return { error: 'Invalid username or password!', success: false };
       }
     }
-    return { error: 'Failed to login!', success: false };
+
+    throw error;
   }
 };
 
