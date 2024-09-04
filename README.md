@@ -16,11 +16,11 @@
 ·
 <a href="#rocket-features">Features</a>
 ·
-<a href="#gear-tecnologias">Technologies/Tools</a>
+<a href="#gear-technologies">Technologies/Tools</a>
 ·
-<a href="#question-como-testar">How to Test</a>
+<a href="#question-how-to-test">How to Test</a>
 ·
-<a href="#copyright-licença">License</a>
+<a href="#copyright-license">License</a>
 </p>
 
 # :bulb: Learning
