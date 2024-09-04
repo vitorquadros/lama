@@ -13,7 +13,7 @@
 
 <p align="center">
 <a href="#rocket-features">Learning</a>
-
+·
 <a href="#rocket-features">Features</a>
 ·
 <a href="#gear-tecnologias">Technologies/Tools</a>
