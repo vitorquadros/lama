@@ -10,6 +10,12 @@
     gap: 10px;
 }
 
+.avatarImg {
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+
 .detailTitle {
     color: gray;
     font-weight: bold;
