@@ -22,9 +22,12 @@ export const addPost = async (formData: FormData) => {
 
     await newPost.save();
     revalidatePath('/blog');
+    revalidatePath('/admin');
+
+    return { success: true };
   } catch (error) {
     console.log(error);
-    throw new Error('Something went wrong!');
+    return { success: false, error: 'Failed to add post!' };
   }
 };
 
@@ -38,8 +41,11 @@ export const deletePost = async (formData: FormData) => {
 
     await Post.findByIdAndDelete(id);
     revalidatePath('/blog');
+    revalidatePath('/admin');
+
+    return { success: true };
   } catch (error) {
     console.log(error);
-    throw new Error('Something went wrong!');
+    return { success: false, error: 'Failed to delete post!' };
   }
 };
