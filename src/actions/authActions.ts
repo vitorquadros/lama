@@ -13,7 +13,10 @@ export const handleLogout = async () => {
   await signOut();
 };
 
-export const login = async (formData: FormData) => {
+export const login = async (
+  previousState: { success: boolean; error?: string },
+  formData: FormData
+) => {
   const { username, password } = Object.fromEntries(formData) as {
     username: string;
     password: string;
@@ -26,8 +29,16 @@ export const login = async (formData: FormData) => {
       username,
       password
     });
+
+    return { success: true };
   } catch (error) {
     console.log(error);
+
+    if (error instanceof Error) {
+      if (error.message.includes('CredentialsSignin')) {
+        return { error: 'Invalid username or password!', success: false };
+      }
+    }
     return { error: 'Failed to login!', success: false };
   }
 };
