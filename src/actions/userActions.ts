@@ -9,11 +9,12 @@ export const addUser = async (
   previousState: { success: boolean; error?: string },
   formData: FormData
 ) => {
-  const { username, email, password, img } = Object.fromEntries(formData) as {
+  const { username, email, password, img, isAdmin } = Object.fromEntries(formData) as {
     username: string;
     email: string;
     img: string;
     password: string;
+    isAdmin: string;
   };
 
   try {
@@ -21,8 +22,9 @@ export const addUser = async (
     const newUser = new User({
       username,
       email,
-      img,
-      password: await bcrypt.hash(password, 10)
+      img: img !== '' ? img : undefined,
+      password: await bcrypt.hash(password, 10),
+      isAdmin: isAdmin === 'true'
     });
 
     await newUser.save();
@@ -35,10 +37,7 @@ export const addUser = async (
   }
 };
 
-export const deleteUser = async (
-  previousState: { success: boolean; error?: string },
-  formData: FormData
-) => {
+export const deleteUser = async (formData: FormData) => {
   const { id } = Object.fromEntries(formData) as {
     id: string;
   };

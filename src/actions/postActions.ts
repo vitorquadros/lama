@@ -4,10 +4,14 @@ import { Post } from '@/lib/models';
 import { connectToDb } from '@/lib/utils';
 import { revalidatePath } from 'next/cache';
 
-export const addPost = async (formData: FormData) => {
-  const { title, description, userId } = Object.fromEntries(formData) as {
+export const addPost = async (
+  previousState: { success: boolean; error?: string },
+  formData: FormData
+) => {
+  const { title, description, userId, img } = Object.fromEntries(formData) as {
     title: string;
     description: string;
+    img?: string;
     userId: string;
   };
 
@@ -16,6 +20,7 @@ export const addPost = async (formData: FormData) => {
     const newPost = new Post({
       title,
       description,
+      img: img !== '' ? img : undefined,
       userId,
       slug: title.toLowerCase().replace(/ /g, '-')
     });
