@@ -1,10 +1,10 @@
+'use server';
+
 import { Post } from '@/lib/models';
 import { connectToDb } from '@/lib/utils';
 import { revalidatePath } from 'next/cache';
 
 export const addPost = async (formData: FormData) => {
-  'use server';
-
   const { title, description, userId } = Object.fromEntries(formData) as {
     title: string;
     description: string;
@@ -22,7 +22,22 @@ export const addPost = async (formData: FormData) => {
 
     await newPost.save();
     revalidatePath('/blog');
-    console.log('successfully added new post');
+  } catch (error) {
+    console.log(error);
+    throw new Error('Something went wrong!');
+  }
+};
+
+export const deletePost = async (formData: FormData) => {
+  const { id } = Object.fromEntries(formData) as {
+    id: string;
+  };
+
+  try {
+    connectToDb();
+
+    await Post.findByIdAndDelete(id);
+    revalidatePath('/blog');
   } catch (error) {
     console.log(error);
     throw new Error('Something went wrong!');
