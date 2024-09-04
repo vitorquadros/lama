@@ -76,12 +76,12 @@ During this project, we practiced the most recent features and concepts of Next.
    
 2. Create a `.env` file at the root of the project and fill in the environment variables listed in the file [.github/.env.sample](.github/.env.sample) based on the credentials of your Cluster and OAuth application.
 
-3. Use your package manager to install the dependencies of the project with the command `install`.
+3. Use your package manager to install the dependencies of the project.
 
 4. Use your package manager to run the server with the command `dev`.
 
 
-# :copyright: Licença
+# :copyright: License
 
 This project is under the [MIT license](./LICENSE).
 
