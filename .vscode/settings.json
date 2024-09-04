@@ -29,7 +29,7 @@
     "__tests__": true,
     ".git": true,
     ".gitignore": true,
-    "README.md": true,
+    "README.md": false,
     ".gitattributes": true,
     ".vscode": true,
     ".bundle": true,

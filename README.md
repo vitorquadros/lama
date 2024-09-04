@@ -12,6 +12,8 @@
 <h2 align="center">Content</h2>
 
 <p align="center">
+<a href="#rocket-features">Learning</a>
+
 <a href="#rocket-features">Features</a>
 ·
 <a href="#gear-tecnologias">Technologies/Tools</a>
@@ -21,56 +23,63 @@
 <a href="#copyright-licença">License</a>
 </p>
 
+# :bulb: Learning
+
+During this project, we practiced the most recent features and concepts of Next.js 14, including:
+
+* Server and client components
+* Hydration errors solutions
+* Server-side data fetching
+* Caching
+* Suspense
+* Navigation
+* Params and Search Params
+* Optimized Links and Images
+* Server actions
+* API routes on Next.js
+* Authentication with Auth.js
+* Permissions and authorization
+* Next.js middlewares
+
 # :rocket: Features
 
-- item
+- Home, About, Contact, Blog, Admin and Authentication pages
 
-- item
+- Create and delete posts and users
+
+- Manage users and posts on Admin panel
 
 # :gear: Technologies
 
-### API
+### Technologies used
 
-- [Express](https://github.com/expressjs/express)
-- [PostgreSQL](https://github.com/postgres/postgres)
-- [TypeORM](https://github.com/typeorm/typeorm)
-- [BcryptJS](https://github.com/dcodeIO/bcrypt.js/)
-- [JsonWebToken](https://github.com/auth0/node-jsonwebtoken)
-- [UUID](https://github.com/uuidjs/uuid)
-- [Tsyringe](https://github.com/microsoft/tsyringe)
-- [Express's CORS](https://github.com/expressjs/cors)
-- [Nodemailer](https://github.com/nodemailer/nodemailer)
-- [Multer](https://github.com/expressjs/multer)
-
-### Frontend
-
-- [Vite](https://github.com/vitejs/vite)
+- [NodeJS](https://github.com/nodejs)
+- [Typescript](https://github.com/microsoft/TypeScript)
 - [ReactJS](https://github.com/facebook/react)
-- [React Router DOM](https://github.com/remix-run/react-router)
-- [Axios](https://github.com/axios/axios)
-- [Styled Components](https://github.com/styled-components/styled-components)
-- [React Hook Form](https://github.com/react-hook-form/react-hook-form)
-- [Yup](https://github.com/jquense/yup)
-- [Moment](https://github.com/moment/moment)
+- [NextJS](https://github.com/vercel/next.js)
+- [NextAuth](https://github.com/nextauthjs/next-auth)
+- [MongoDB](https://github.com/mongodb/mongo)
+- [Mongoose](https://github.com/Automattic/mongoose)
+- [BcryptJS](https://github.com/dcodeIO/bcrypt.js/)
+- [CSS Modules](https://nextjs.org/docs/app/building-your-application/styling/css)
+- [Eslint](https://github.com/eslint/eslint)
+- [BiomeJS](https://github.com/biomejs/biome)
+- [Storybook](https://github.com/storybookjs/storybook)
 
 # :question: How to Test
 
 ### **Locally**
 
-Para ambas as aplicações tenha certeza que você tem o [node](https://github.com/nodejs/node) e o [npm](https://github.com/npm/npm) instalados na sua máquina
+:warning: Make sure you have [node](https://github.com/nodejs/node) and a package manager like [npm](https://github.com/npm/npm) or [yarn](https://github.com/yarnpkg/yarn) installed on your machine.
 
-### API
+1. Setup a MongoDB Atlas Cluster and a Github OAuth application.
+   
+2. Create a `.env` file at the root of the project and fill in the environment variables listed in the file [.github/.env.sample](.github/.env.sample) based on the credentials of your Cluster and OAuth application.
 
-1. Crie um arquivo .env na raiz do projeto (api) e preencha as variáveis de ambiente listadas no arquivo [.github/.env.sample](.github/.env.sample)
-2. Instale as dependencias da aplicação com `npm install`
-3. Se estiver usando [docker](https://github.com/docker/compose) e [docker-compose](https://github.com/docker), substitua as configurações em [docker-compose.yml](./api/docker-compose.yml) antes de criar o container
-4. Rode as migrations com `npm run typeorm migration:run` para criar as tabelas no banco de dados
-5. Inicie o servidor com `npm run dev`
+3. Use your package manager to install the dependencies of the project with the command `install`.
 
-### Frontend
+4. Use your package manager to run the server with the command `dev`.
 
-1. Instale as dependencias da aplicação com `npm install`
-2. Inicie o servidor com `npm run dev`
 
 # :copyright: Licença
 
