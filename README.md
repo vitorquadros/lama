@@ -12,7 +12,7 @@
 <h2 align="center">Content</h2>
 
 <p align="center">
-<a href="#rocket-features">Learning</a>
+<a href="#bulb-learning">Learning</a>
 ·
 <a href="#rocket-features">Features</a>
 ·
