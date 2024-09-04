@@ -6,6 +6,21 @@ import type { Post } from '@/@types/post';
 import { Suspense } from 'react';
 import Spinner from '@/components/Spinner/Spinner';
 
+export const generateMetadata = async ({ params: { slug } }: Props) => {
+  const post = await getPost(slug);
+
+  if (!post)
+    return {
+      title: 'Post not found',
+      description: 'Post not found'
+    };
+
+  return {
+    title: post.title,
+    description: post.description
+  };
+};
+
 interface Props {
   params: {
     slug: string;
