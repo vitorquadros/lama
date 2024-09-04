@@ -1,9 +1,10 @@
 import PostCard from '@/components/PostCard/PostCard';
 import styles from './blog.module.css';
 import { getPosts } from '@/lib/services';
+import type { Post } from '@/@types/post';
 
 const BlogPage = async () => {
-  const posts = await getPosts();
+  const posts: Post[] = await getPosts();
 
   return (
     <div className={styles.container}>

@@ -1,45 +1,41 @@
 import Image from 'next/image';
 import styles from './post.module.css';
 import PostUser from '@/components/PostUser/PostUser';
+import { getPost } from '@/lib/services';
+import type { Post } from '@/@types/post';
+import { Suspense } from 'react';
 
-const PostPage = () => {
+interface Props {
+  params: {
+    slug: string;
+  };
+}
+
+const PostPage = async ({ params: { slug } }: Props) => {
+  const post: Post = await getPost(slug);
+
+  if (!post) {
+    return <div>Post not found</div>;
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.imageContainer}>
-        <Image
-          src="https://images.pexels.com/photos/27703479/pexels-photo-27703479/free-photo-of-ceu-por-do-sol-feriado-ponto-de-referencia.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          alt="Post Image"
-          fill
-          className={styles.img}
-        />
+        <Image src={post.img ?? '/noimage.png'} alt="Post Image" fill className={styles.img} />
       </div>
+
       <div className={styles.textContainer}>
-        <h1 className={styles.title}>Title</h1>
+        <h1 className={styles.title}>{post.title}</h1>
         <div className={styles.detail}>
-          <Image
-            src="https://images.pexels.com/photos/27703479/pexels-photo-27703479/free-photo-of-ceu-por-do-sol-feriado-ponto-de-referencia.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            alt="Avatar Image"
-            width={50}
-            height={50}
-            className={styles.avatarImg}
-          />
-          <PostUser />
+          <Suspense fallback={<div>Loading...</div>}>
+            <PostUser userId={post.userId} />
+          </Suspense>
           <div className={styles.detailText}>
             <span className={styles.detailTitle}>Published</span>
-            <span className={styles.detailValue}>01/01/2024</span>
+            <span className={styles.detailValue}>{post.createdAt.toString().slice(4, 16)}</span>
           </div>
         </div>
-        <div className={styles.content}>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat libero ad aspernatur
-          consequuntur ducimus eligendi sequi maiores sint esse nesciunt porro aliquam veritatis
-          soluta quam, ex maxime reprehenderit quas qui repellat aut obcaecati mollitia ipsa! Quod
-          ducimus assumenda inventore obcaecati dolores iusto animi dolor dolorum laborum.
-          Praesentium, perferendis pariatur minus fugiat quod deserunt, delectus rem explicabo nulla
-          harum id deleniti dolores cupiditate dignissimos sit doloremque adipisci. Sequi saepe nemo
-          exercitationem enim ab cum eligendi cumque, dolor nisi, vero repellat molestias accusamus
-          distinctio possimus, necessitatibus ullam adipisci nam ipsam optio. Explicabo tenetur
-          eveniet repellendus magnam necessitatibus reprehenderit nobis, possimus modi itaque.
-        </div>
+        <div className={styles.content}>{post.description}</div>
       </div>
     </div>
   );
