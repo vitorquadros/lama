@@ -28,11 +28,14 @@ export const login = async (formData: FormData) => {
     });
   } catch (error) {
     console.log(error);
-    return { error: 'Something went wrong.' };
+    return { error: 'Failed to login!', success: false };
   }
 };
 
-export const register = async (formData: FormData) => {
+export const register = async (
+  previousState: { success: boolean; error?: string },
+  formData: FormData
+) => {
   const { username, email, password, passwordConfirm, img } = Object.fromEntries(formData) as {
     username: string;
     email: string;
@@ -42,7 +45,7 @@ export const register = async (formData: FormData) => {
   };
 
   if (password !== passwordConfirm) {
-    return 'Passwords do not match.';
+    return { error: 'Passwords do not match!', success: false };
   }
 
   try {
@@ -51,7 +54,7 @@ export const register = async (formData: FormData) => {
     const user = await User.findOne({ username });
 
     if (user) {
-      return 'Username already exists';
+      return { error: 'User already exists!', success: false };
     }
 
     const salt = await bcrypt.genSalt(10);
@@ -65,8 +68,9 @@ export const register = async (formData: FormData) => {
     });
 
     await newUser.save();
+    return { success: true };
   } catch (error) {
     console.log(error);
-    return { error: 'Something went wrong.' };
+    return { error: 'Failed to register!', success: false };
   }
 };
