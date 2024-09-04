@@ -4,6 +4,7 @@ import PostUser from '@/components/PostUser/PostUser';
 import { getPost } from '@/lib/services';
 import type { Post } from '@/@types/post';
 import { Suspense } from 'react';
+import Spinner from '@/components/Spinner/Spinner';
 
 interface Props {
   params: {
@@ -27,7 +28,7 @@ const PostPage = async ({ params: { slug } }: Props) => {
       <div className={styles.textContainer}>
         <h1 className={styles.title}>{post.title}</h1>
         <div className={styles.detail}>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Spinner size={32} center={false} />}>
             <PostUser userId={post.userId} />
           </Suspense>
           <div className={styles.detailText}>
