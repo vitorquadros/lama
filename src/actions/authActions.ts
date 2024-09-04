@@ -3,6 +3,7 @@
 import { signIn, signOut } from '@/lib/auth';
 import { User } from '@/lib/models';
 import { connectToDb } from '@/lib/utils';
+import bcrypt from 'bcrypt';
 
 export const handleGithubLogin = async () => {
   await signIn('github');
@@ -34,10 +35,13 @@ export const register = async (formData: FormData) => {
       return 'Username already exists';
     }
 
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
     const newUser = new User({
       username,
       email,
-      password,
+      password: hashedPassword,
       img
     });
 

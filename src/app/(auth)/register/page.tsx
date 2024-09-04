@@ -8,8 +8,8 @@ const RegisterPage = () => {
         <form action={register} className={styles.form}>
           <input type="text" name="username" placeholder="Username" />
           <input type="text" name="email" placeholder="Email" />
-          <input type="text" name="password" placeholder="Password" />
-          <input type="text" name="passwordConfirm" placeholder="Password confirmation" />
+          <input type="password" name="password" placeholder="Password" />
+          <input type="password" name="passwordConfirm" placeholder="Password confirmation" />
           <button type="submit">Register</button>
         </form>
       </div>
